@@ -29,7 +29,7 @@
             </div>
             <div class="btn-group" role="group" aria-label="Button group name">
                 <button type="button" class="btn btn-success">Agregar</button>
-                <button type="button" class="btn btn-info">Editar</button>
+                <button type="button" class="btn btn-warning">Editar</button>
                 <button type="button" class="btn btn-danger">Borar</button>
             </div>
         </div>
