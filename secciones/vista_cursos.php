@@ -1,6 +1,12 @@
 <?php include('../templates/cabecera.php')?>
 
-<div class="col-md-5">
+<div class="row">
+                        
+    <div class="col-12">
+    <br/>
+                             <div class="row">
+
+<div class="col-5">
 
 <form action ="" method="post">
 
@@ -38,9 +44,31 @@
 </form>
 
 </div>
-<div class="col-md-7">
+<div class="col-7">
 
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Aciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="">
+                <td scope="row"> 1 </td>
+                <td> PHP </td>
+                <td> Seleccionar </td>
+            </tr>
+            
+        </tbody>
+    </table>
 </div>
 
+
+</div>
+</div>
+</div>
 
 <?php include('../templates/pie.php')?>
