@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if (!empty($_POST["btingresar"])) {
-  if(empty($_POST["username"]) and empty($_POST["password"])){
-    echo 'Los campos estan vacios';
-  }
-  }else {
+
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST['username']) || empty($_POST['password'])) {
+      echo "<script>alert('Por favor, completa todos los campos del formulario.');</script>";
+    } else {
 
     $servername = "localhost";
     $username = "root";
@@ -39,7 +39,9 @@ if (!empty($_POST["btingresar"])) {
   
     $conn->close();
   }
-}
+  unset($_POST['username']);
+  unset($_POST['password']);
+  }
 
 
 

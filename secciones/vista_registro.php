@@ -25,30 +25,70 @@
                     <div class="card-header">
                         Registrar Nuevo Usuario
                     </div>
+                    <div align="center">
+                    <img src="../src/usuario.jpg" width="200" height="">
+                    </div>
                     <div class="card-body">
-                      
                     <form action="registrar.php" method="POST">
                         <div class="mb-3">
                           <label for="username" class="form-label">Nombre de Usuario</label>
                           <input type="text"
                             class="form-control" 
-                            name="username" 
+                            name="username" required
                             id="username" 
                             aria-describedby="helpId" placeholder="Usuario">
-                          <small id="helpId" class="form-text text-muted">Ingrese un nombre de usuario</small>
+                          <small id="helpId" class="form-text text-muted">Ingrese un  usuario</small>
                         </div>
 
                         <div class="mb-3">
-                          <label for="" class="form-label">Contraseña</label>
-                          <input type="password"
-                            class="form-control" 
-                            name="password" 
-                            id="password" 
-                            aria-describedby="helpId" placeholder="password">
-                          <small id="helpId" class="form-text text-muted">Ingrese una contraseña</small>
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                            <input type="password" class="form-control" name="password" required id="password" placeholder="Contraseña">
+                            <button type="button" id="toggle-password" class="btn btn-secondary">Mostrar</button>
+                            </div>
+                            <small id="helpId" class="form-text text-muted">Ingrese una contraseña</small>
                         </div>
+                              <script>
+                                      var togglePassword = document.getElementById("toggle-password");
+                                      var passwordInput = document.getElementById("password");
 
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                                      togglePassword.addEventListener("click", function () {
+                                          if (passwordInput.getAttribute("type") === "password") {
+                                              passwordInput.setAttribute("type", "text");
+                                              togglePassword.textContent = "Ocultar";
+                                          } else {
+                                              passwordInput.setAttribute("type", "password");
+                                              togglePassword.textContent = "Mostrar";
+                                          }
+                                      });
+                                  </script>
+
+                        <div class="mb-3">
+                            <label for="contrasena-confirm" class="form-label">Confirmar contraseña:</label>
+                            <div class="input-group">
+                            <input type="password" class="form-control" id="contrasena-confirm" name="contrasena-confirm" required aria-describedby="helpId" placeholder="Confirmar contraseña">
+                            <button type="button" id="toggle-contrasena-confirm" class="btn btn-secondary">Mostrar</button>
+                            </div>
+                      </div>
+
+                                  <script>
+                                      var toggleContrasenaConfirm = document.getElementById("toggle-contrasena-confirm");
+                                      var contrasenaConfirmInput = document.getElementById("contrasena-confirm");
+
+                                      toggleContrasenaConfirm.addEventListener("click", function () {
+                                          if (contrasenaConfirmInput.getAttribute("type") === "password") {
+                                              contrasenaConfirmInput.setAttribute("type", "text");
+                                              toggleContrasenaConfirm.textContent = "Ocultar";
+                                          } else {
+                                              contrasenaConfirmInput.setAttribute("type", "password");
+                                              toggleContrasenaConfirm.textContent = "Mostrar";
+                                          }
+                                      });
+                                  </script>
+
+                    
+
+                        <button name="btregistrar" type="submit" class="btn btn-primary">Registrar</button>
                     </div>
                     </from>
                     <p><a href="../index.php">Regresar</a></p>
@@ -56,14 +96,5 @@
             </div>
         </div>
         </div>
-
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
 </body>
 </html>

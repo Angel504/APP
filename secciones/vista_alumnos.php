@@ -22,7 +22,6 @@
                                 aria-describedby="helpId" placeholder="ID">  
                         </div>  
                 
-
                         <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text"

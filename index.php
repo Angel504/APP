@@ -45,14 +45,27 @@
                         </div>
 
                         <div class="mb-3">
-                          <label for="" class="form-label">Contraseña</label>
-                          <input type="password"
-                            class="form-control" 
-                            name="password" 
-                            id="password" 
-                            aria-describedby="helpId" placeholder="password">
-                          <small id="helpId" class="form-text text-muted">Ingrese su contraseña</small>
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                            <input type="password" class="form-control" name="password" required id="password" placeholder="Contraseña">
+                            <button type="button" id="toggle-password" class="btn btn-secondary">Mostrar</button>
+                            </div>
+                            <small id="helpId" class="form-text text-muted">Ingrese una contraseña</small>
                         </div>
+                        <script>
+                                      var togglePassword = document.getElementById("toggle-password");
+                                      var passwordInput = document.getElementById("password");
+
+                                      togglePassword.addEventListener("click", function () {
+                                          if (passwordInput.getAttribute("type") === "password") {
+                                              passwordInput.setAttribute("type", "text");
+                                              togglePassword.textContent = "Ocultar";
+                                          } else {
+                                              passwordInput.setAttribute("type", "password");
+                                              togglePassword.textContent = "Mostrar";
+                                          }
+                                      });
+                                  </script>
 
                         <button name="btingresar" type="submit" class="btn btn-primary">Iniciar sesión</button>
                     </div>
