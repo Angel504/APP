@@ -1,4 +1,9 @@
-<?php ?>
+<?php 
+
+session_start();
+
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -24,7 +29,7 @@
             <br>
                 <div class="card">
                     <div class="card-header">
-                        Inicio de Sesion
+                    <p align=center>LOGIN</p>
                     </div>
                     <div align="center">
                     <img src="src/login.jpg" width="200" height="">
@@ -41,7 +46,7 @@
                             name="username" 
                             id="username" 
                             aria-describedby="helpId" placeholder="Usuario">
-                          <small id="helpId" class="form-text text-muted">escriba su usuario</small>
+                          <small id="helpId" class="form-text text-muted"></small>
                         </div>
 
                         <div class="mb-3">
@@ -50,7 +55,7 @@
                             <input type="password" class="form-control" name="password" required id="password" placeholder="Contraseña">
                             <button type="button" id="toggle-password" class="btn btn-secondary">Mostrar</button>
                             </div>
-                            <small id="helpId" class="form-text text-muted">Ingrese una contraseña</small>
+                            <small id="helpId" class="form-text text-muted"></small>
                         </div>
                         <script>
                                       var togglePassword = document.getElementById("toggle-password");
@@ -70,7 +75,7 @@
                         <button name="btingresar" type="submit" class="btn btn-primary">Iniciar sesión</button>
                     </div>
                     </from>
-                    <p>¿No tienes una cuenta? <a href="secciones/vista_registro.php">Regístrate</a></p>
+                    <p align=center>¿No tienes una cuenta? <a href="secciones/vista_registro.php">Regístrate</a></p>
                 </div>               
             </div>
         </div>

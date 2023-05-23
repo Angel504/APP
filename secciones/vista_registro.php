@@ -23,7 +23,7 @@
             <br>
                 <div class="card">
                     <div class="card-header">
-                        Registrar Nuevo Usuario
+                        <p align=center>REGISTRO</p>
                     </div>
                     <div align="center">
                     <img src="../src/usuario.jpg" width="200" height="">
@@ -37,7 +37,7 @@
                             name="username" required
                             id="username" 
                             aria-describedby="helpId" placeholder="Usuario">
-                          <small id="helpId" class="form-text text-muted">Ingrese un  usuario</small>
+                          <small id="helpId" class="form-text text-muted"></small>
                         </div>
 
                         <div class="mb-3">
@@ -46,7 +46,7 @@
                             <input type="password" class="form-control" name="password" required id="password" placeholder="Contraseña">
                             <button type="button" id="toggle-password" class="btn btn-secondary">Mostrar</button>
                             </div>
-                            <small id="helpId" class="form-text text-muted">Ingrese una contraseña</small>
+                            <small id="helpId" class="form-text text-muted"></small>
                         </div>
                               <script>
                                       var togglePassword = document.getElementById("toggle-password");
@@ -91,7 +91,7 @@
                         <button name="btregistrar" type="submit" class="btn btn-primary">Registrar</button>
                     </div>
                     </from>
-                    <p><a href="../index.php">Regresar</a></p>
+                    <p align=center><a href="../index.php">Regresar</a></p>
                 </div>               
             </div>
         </div>

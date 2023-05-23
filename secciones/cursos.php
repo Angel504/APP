@@ -14,7 +14,7 @@ if($accion!==''){
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':nombre_curso',$nombre_curso);
             $consulta->execute();
-
+            
           
         break;
 
@@ -46,6 +46,7 @@ if($accion!==''){
         break;
 
     }
+    
 
 }
 

@@ -54,7 +54,7 @@ if($accion!=""){
             $consulta->execute();
             $cursosAlumno=$consulta->fetchAll(PDO::FETCH_ASSOC);
 
-            print_r($cursosAlumno);
+            
 
             foreach($cursosAlumno as $curso){
                 $arregloCursos[]=$curso['id'];

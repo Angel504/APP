@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +10,7 @@ session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "aplicacion";
+    $dbname = "app";
   
     $conn = new mysqli($servername, $username, $password, $dbname);
   
@@ -34,7 +32,8 @@ session_start();
       header("Location: secciones/index.php");
     } else {
      
-      echo "Nombre de usuario o contraseña incorrectos.";
+      echo '<div class="alert alert-danger">Usuario o contraseña incorrectos</div>';
+
     }
   
     $conn->close();
