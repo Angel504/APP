@@ -18,8 +18,9 @@
                 <div class="nav navbar-nav">
                     <a class="nav-item nav-link active" href="index.php" aria-current="page">Inicio <span class="visually-hidden">(current)</span></a>
                     <a class="nav-item nav-link" href="vista_alumnos.php">Alumnos</a>
-                    <a class="nav-item nav-link" href="vista_cursos.php">cursos</a>
+                    <a class="nav-item nav-link" href="vista_cursos.php">Cursos</a>
                     <a class="nav-item nav-link" href="cerrar.php">Cerra Sesion</a>
+                    <a class="nav-item nav-link" href="vista_usuarios.php">Usuarios</a>
                 </div>
             </nav>
     

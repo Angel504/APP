@@ -26,8 +26,10 @@
                     <div class="card-header">
                         Inicio de Sesion
                     </div>
+                    <div align="center">
+                    <img src="src/login.jpg" width="200" height="">
+                    </div>
                     <?php 
-
                       include("configuraciones/login.php");
                     ?>
                     <div class="card-body">

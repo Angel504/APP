@@ -26,6 +26,7 @@
                         Registrar Nuevo Usuario
                     </div>
                     <div class="card-body">
+                      
                     <form action="registrar.php" method="POST">
                         <div class="mb-3">
                           <label for="username" class="form-label">Nombre de Usuario</label>
