@@ -35,6 +35,7 @@ if($accion!==''){
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':id',$id);
             $consulta->execute();
+           
 
         break;
 
@@ -52,6 +53,7 @@ if($accion!==''){
     }
 
 }
+
 
 
 $consulta=$conexionBD->prepare("SELECT * FROM users");

@@ -17,7 +17,8 @@
                                 <label for="id" class="form-label">ID</label>
                                 <input type="text"
                                 class="form-control" 
-                                name="id" 
+                                name="id"
+                                value="<?php echo $id;?>"
                                 id="id" 
                                 aria-describedby="helpId" placeholder="ID">  
                         </div>  
@@ -26,7 +27,8 @@
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text"
                                 class="form-control" 
-                                name="nombre" 
+                                name="nombre"
+                                value="<?php echo $nombre;?>" 
                                 id="nombre" 
                                 aria-describedby="helpId" placeholder="Nombre del Alumno">
                         </div>
@@ -35,7 +37,8 @@
                                 <label for="apellidos" class="form-label">Apellidos</label>
                                 <input type="text"
                                 class="form-control" 
-                                name="apellidos" 
+                                name="apellidos"
+                                value="<?php echo $apellidos;?>"
                                 id="apellidos" 
                                 aria-describedby="helpId" placeholder="Apellidos del alumno">
                                 
@@ -44,10 +47,20 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Curso del Alumno:</label>
                             <select multiple class="form-select form-select-lg" name="cursos[]" id="listaCursos">
-                                <option selected>Seleccciona una opcion</option>
+                                
 
                                 <?php foreach($cursos as $curso){?>
-                                <option value="<?php echo $curso['id'];?> "> <?php echo $curso['id']; ?> - <?php echo $curso['nombre_curso']; ?> </option>
+                                <option 
+                                <?php 
+                                    if(!empty($arregloCursos)):
+                                        if(in_array($curso['id'],$arregloCursos)):
+                                            echo 'selected';
+                                        endif;
+                                    endif;
+                                ?>
+                                value="<?php echo $curso['id'];?> "> 
+                                <?php echo $curso['id']; ?> - <?php echo $curso['nombre_curso']; ?> 
+                                </option>
                                 
                                 <?php }?>
 
@@ -86,11 +99,19 @@
                             <?php echo $alumno['nombre'];?> <?php echo $alumno['apellidos']; ?> 
                         <br/>
                             <?php foreach($alumno['cursos'] as $curso){ ?>
-                                - <a href="#"> <?php echo $curso['nombre_curso']; ?> </a> <br/>
+                                - <a href="certificado.php?idcurso= <?php echo $curso['id'];?>&idalumno=<?php echo $alumno["id"];?>"> <?php echo $curso['nombre_curso']; ?> </a> <br/>
                             <?php } ?>
                         </td>
 
-                        <td> Seleccionar </td>
+                        <td> 
+
+                              <form action="" method="post">
+
+                              <input type="hidden" name ="id" value="<?php echo $alumno['id']; ?>">
+                              <input type="submit" value="Seleccionar" name="accion" class="btn btn-info">
+
+                              </form>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                    
@@ -101,8 +122,11 @@
 </div>
 </div>
 
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 
-
-
+<script>
+    new TomSelect('#listaCursos');
+</script>
 
 <?php include('../templates/pie.php')?>
