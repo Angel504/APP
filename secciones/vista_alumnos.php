@@ -48,7 +48,6 @@
                             <label for="" class="form-label">Curso del Alumno:</label>
                             <select multiple class="form-select form-select-lg" name="cursos[]" id="listaCursos">
                                 
-
                                 <?php foreach($cursos as $curso){?>
                                 <option 
                                 <?php 

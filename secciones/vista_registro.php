@@ -86,8 +86,6 @@
                                       });
                                   </script>
 
-                    
-
                         <button name="btregistrar" type="submit" class="btn btn-primary">Registrar</button>
                     </div>
                     </from>

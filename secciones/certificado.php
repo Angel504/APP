@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('../librerias/fpdf.php');
 
 include_once '../configuraciones/db.php';
@@ -14,8 +15,6 @@ function agregarTexto($pdf,$texto,$x,$y,$align='L',$fuente,$size=10,$r=0,$g=0,$b
 function agregaImagen($pdf,$imagen,$x,$y){
     $pdf->Image($imagen,$x,$y,0);
 }
-
-    
 
 
 $idcurso=isset($_GET['idcurso'])?$_GET['idcurso']:'';

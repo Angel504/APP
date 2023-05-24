@@ -16,6 +16,11 @@ if($accion!=""){
     switch($accion){
 
         case 'agregar':
+
+            if (empty($_POST['username']) || empty($_POST['password'])) {
+                echo "<script>alert('Los campos estan vacios');</script>";
+              } else {
+
             $sql="INSERT INTO alumnos (id, nombre, apellidos) VALUES (NULL, :nombre, :apellidos)";
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':nombre',$nombre);
@@ -30,6 +35,7 @@ if($accion!=""){
                     $consulta->bindParam(':idalumno',$idAlumno);
                     $consulta->bindParam('idcurso',$curso);
                     $consulta->execute();
+                }
             }
             
         break;
@@ -62,42 +68,52 @@ if($accion!=""){
         break;
 
         case 'borrar' :
+
+            if (empty($_POST['username']) || empty($_POST['password'])) {
+                echo "<script>alert('Debe seleccionar un registro para eliminar');</script>";
+              } else {
             $sql="DELETE FROM alumnos WHERE id=:id";
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':id',$id);
             $consulta->execute();
+              }
+
         break;
 
         case 'editar' :
+
+            if (empty($_POST['username']) || empty($_POST['password'])) {
+                echo "<script>alert('Selecciones un campo para editar');</script>";
+              } else {
             $sql="UPDATE alumnos SET nombre=:nombre, apellidos=:apellidos WHERE id=:id";
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':nombre',$nombre);
             $consulta->bindParam(':apellidos',$apellidos);
             $consulta->bindParam(':id',$id);
             $consulta->execute();
+              
+                if(isset($cursos)){
 
-            if(isset($cursos)){
-
-                $sql="DELETE FROM alumnos_cursos WHERE idalumno=:idalumno";
-                $consulta=$conexionBD->prepare($sql);
-                $consulta->bindParam(':idalumno',$id);
-                $consulta->execute();
-
-                foreach($cursos as $curso){
-                    $sql="INSERT INTO alumnos_cursos(id,idalumno,idcurso)
-                    VALUES (NULL, :idalumno, :idcurso)";
+                    $sql="DELETE FROM alumnos_cursos WHERE idalumno=:idalumno";
                     $consulta=$conexionBD->prepare($sql);
                     $consulta->bindParam(':idalumno',$id);
-                    $consulta->bindParam(':idcurso',$curso);
                     $consulta->execute();
-                }
+
+                    foreach($cursos as $curso){
+                        $sql="INSERT INTO alumnos_cursos(id,idalumno,idcurso)
+                        VALUES (NULL, :idalumno, :idcurso)";
+                        $consulta=$conexionBD->prepare($sql);
+                        $consulta->bindParam(':idalumno',$id);
+                        $consulta->bindParam(':idcurso',$curso);
+                        $consulta->execute();
+                    }
                 $arregloCursos=$cursos;
             }
-
+        }
         break;
     }
 }
-
+  
 $sql="SELECT * FROM alumnos";
 $listaAlumnos=$conexionBD->query($sql);
 $alumnos=$listaAlumnos->fetchAll();
