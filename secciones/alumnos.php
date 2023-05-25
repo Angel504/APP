@@ -11,13 +11,12 @@ $cursos=isset($_POST['cursos'])?$_POST['cursos']:'';
 $accion=isset($_POST['accion'])?$_POST['accion']:'';
 
 
-
 if($accion!=""){
     switch($accion){
 
         case 'agregar':
 
-            if (empty($_POST['username']) || empty($_POST['password'])) {
+            if (empty($_POST['nombre']) || empty($_POST['apellidos'])) {
                 echo "<script>alert('Los campos estan vacios');</script>";
               } else {
 
@@ -60,8 +59,6 @@ if($accion!=""){
             $consulta->execute();
             $cursosAlumno=$consulta->fetchAll(PDO::FETCH_ASSOC);
 
-            
-
             foreach($cursosAlumno as $curso){
                 $arregloCursos[]=$curso['id'];
             }
@@ -69,7 +66,7 @@ if($accion!=""){
 
         case 'borrar' :
 
-            if (empty($_POST['username']) || empty($_POST['password'])) {
+            if (empty($_POST['nombre']) || empty($_POST['apellidos'])) {
                 echo "<script>alert('Debe seleccionar un registro para eliminar');</script>";
               } else {
             $sql="DELETE FROM alumnos WHERE id=:id";
@@ -77,12 +74,13 @@ if($accion!=""){
             $consulta->bindParam(':id',$id);
             $consulta->execute();
               }
+              
 
         break;
 
         case 'editar' :
 
-            if (empty($_POST['username']) || empty($_POST['password'])) {
+            if (empty($_POST['nombre']) || empty($_POST['apellidos'])) {
                 echo "<script>alert('Selecciones un campo para editar');</script>";
               } else {
             $sql="UPDATE alumnos SET nombre=:nombre, apellidos=:apellidos WHERE id=:id";
@@ -112,7 +110,9 @@ if($accion!=""){
         }
         break;
     }
+
 }
+
   
 $sql="SELECT * FROM alumnos";
 $listaAlumnos=$conexionBD->query($sql);

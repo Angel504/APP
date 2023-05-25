@@ -55,7 +55,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Aciones</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -8,7 +8,6 @@ $password=isset($_POST['password'])?$_POST['password']:'';
 $accion=isset($_POST['accion'])?$_POST['accion']:'';
 
 if($accion!==''){
-
     switch($accion){
         case 'agregar':
             if (empty($_POST['username'])|| empty($_POST['password'])) {
@@ -19,7 +18,6 @@ if($accion!==''){
             $consulta->bindParam(':username',$username);
             $consulta->bindParam(':password',$password);
             $consulta->execute();
-
               }
         break;
 
