@@ -24,7 +24,7 @@ if($accion!=""){
             $sql="INSERT INTO alumnos (id, nombre, apellidos) VALUES (NULL, :nombre, :apellidos)";
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':nombre',$nombre);
-            $consulta->bindParam('apellidos',$apellidos);
+            $consulta->bindParam(':apellidos',$apellidos);
             $consulta->execute();
 
             $idAlumno=$conexionBD->lastInsertId();
@@ -33,7 +33,7 @@ if($accion!=""){
                     $sql="INSERT INTO alumnos_cursos (id, idalumno, idcurso) VALUES (NULL,:idalumno,:idcurso)";
                     $consulta=$conexionBD->prepare($sql);
                     $consulta->bindParam(':idalumno',$idAlumno);
-                    $consulta->bindParam('idcurso',$curso);
+                    $consulta->bindParam(':idcurso',$curso);
                     $consulta->execute();
                 }
             }
